@@ -1,0 +1,14 @@
+1:- gstr1_upload.php file is main script. Before execute the script you need to follw below point.
+
+i) You need to put GSTIN info(gstin,state,gst_username) in GstinInfo  in libs/constant.php file.
+ii) You need to put credential details(username,password,client_id,client_secret) provide by masters india in accessTokenInfo in libs/constant.php file.
+iii) You need to uncomment the function in gstr1_upload.php file which you want to execute.
+iv) host variable in libs/constant.php for sandbox will be "https://api.mastersindia.co". For production, it will be "https://proapi.mastersindia.co".
+v) GST encryption public key(GSTN_PublicKey.pem and GSTN_PublicKey.cer) file is different for both environment sandbox and production.
+vi) description of some key.
+  encryptedAppKey:- 32 character random app key which is encrypted with GSTIN public key and used at the time of OTP request.
+  flatAppKey:- 32 character random app key which is base64 encode and used at the time of OTP request.
+  otp:- otp is received on registered mobile number.
+  auth_token:- received in auth token API.
+  sek:- received in auth token API.
+  ref_id:- received from uploadData function and you need to pass this ref_id in returnStatus API to  check that your upload data status on portal.
